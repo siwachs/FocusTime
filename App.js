@@ -1,12 +1,28 @@
-import { Text, SafeAreaView, View, StyleSheet } from 'react-native';
+import {
+  Text,
+  SafeAreaView,
+  View,
+  StyleSheet,
+  Platform,
+  StatusBar,
+} from 'react-native';
+import { colors } from './src/utils/colors';
 
 export default function App() {
-  return <View style={styles.container}></View>;
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.text}>Test text</Text>
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 50,
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    backgroundColor: colors.darklue,
+  },
+  text: {
+    color: colors.white,
   },
 });
