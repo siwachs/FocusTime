@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Text, StyleSheet } from 'react-native';
 
 import { fontSizes, spacing } from '../utils/sizes';
