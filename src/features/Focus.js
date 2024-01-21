@@ -29,8 +29,6 @@ const Focus = ({ addSubject }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: colors.darklue,
     paddingHorizontal: spacing.md,
     paddingTop: spacing.xxl,
   },
