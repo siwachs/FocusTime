@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { View, Text, StyleSheet, Vibration } from 'react-native';
-import { ProgressBar } from 'react-native-paper';
-import { useKeepAwake } from 'expo-keep-awake';
-import Countdown from '../components/Countdown';
-import RoundedButton from '../components/RoundedButton';
-import Timing from './Timing';
-import { spacing } from '../utils/sizes';
-import colors from '../utils/colors';
+import { useState } from "react";
+import { View, Text, StyleSheet, Vibration } from "react-native";
+import { ProgressBar } from "react-native-paper";
+import { useKeepAwake } from "expo-keep-awake";
+import Countdown from "../components/Countdown";
+import RoundedButton from "../components/RoundedButton";
+import Timing from "./Timing";
+import { spacing } from "../styles/sizes";
+import colors from "../styles/colors";
 
 const Timer = ({ focusSubject, onTimerEnd, clearSubject }) => {
   useKeepAwake();
@@ -81,30 +81,30 @@ const styles = StyleSheet.create({
   },
   countdown: {
     flex: 0.5,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   timingWrapper: {
     flex: 0.1,
     paddingTop: spacing.xxl,
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   buttonWrapper: {
     flex: 0.3,
-    flexDirection: 'row',
+    flexDirection: "row",
     padding: spacing.md, //Dimnsion Pixel
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   title: {
     color: colors.white,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
   },
-  task: { color: colors.white, fontWeight: 'bold', textAlign: 'center' },
+  task: { color: colors.white, fontWeight: "bold", textAlign: "center" },
   clearSubject: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
   },
 });
 

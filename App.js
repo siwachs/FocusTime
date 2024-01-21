@@ -1,38 +1,27 @@
-import { useState } from 'react';
-import { SafeAreaView, StyleSheet, Platform, StatusBar } from 'react-native';
-import Focus from './src/features/Focus';
-import Timer from './src/features/Timer';
-import FocusHistory from './src/features/FocusHistory';
-import colors from './src/utils/colors';
+import { useState } from "react";
+import { SafeAreaView } from "react-native";
+import { AppContainer } from "./src/styles/styles";
+
+import Timer from "./src/features/Timer";
+import HomeScreen from "./src/screens/HomeScreen";
 
 export default function App() {
   const [currentSubject, setCurrentSubject] = useState(null);
   const [history, setHistory] = useState([]);
 
   return (
-    <SafeAreaView style={styles.container}>
-      {!currentSubject ? (
-        <>
-          <Focus addSubject={setCurrentSubject} />
-          <FocusHistory history={history} />
-        </>
-      ) : (
+    <SafeAreaView style={AppContainer.container}>
+      {currentSubject ? (
         <Timer
           focusSubject={currentSubject}
-          onTimerEnd={(subject) => {
-            setHistory([...history, subject]);
-          }}
+          onTimerEnd={(subject) =>
+            setHistory((prevHistory) => [...prevHistory, subject])
+          }
           clearSubject={() => setCurrentSubject(null)}
         />
+      ) : (
+        <HomeScreen setCurrentSubject={setCurrentSubject} history={history} />
       )}
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-    backgroundColor: colors.darklue,
-  },
-});
